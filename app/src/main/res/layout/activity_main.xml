@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/tools"
+    xmlns:app2=""
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -46,65 +47,6 @@
         android:layout_alignEnd="@+id/calBut"
         android:layout_marginTop="32dp" />
 
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/weightBox"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
-
-    </RadioGroup>
-
-
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/heightBox"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
-
-    </RadioGroup>
-
-    <RadioButton
-        android:text="lbs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lbsBox"
-        android:layout_alignBaseline="@+id/weightBox"
-        android:layout_alignBottom="@+id/weightBox"
-        android:layout_toRightOf="@+id/weightBox"
-        android:layout_toEndOf="@+id/weightBox" />
-
-    <RadioButton
-    android:text="kg"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/kgBox"
-        android:layout_alignBaseline="@+id/lbsBox"
-        android:layout_alignBottom="@+id/lbsBox"
-        android:layout_toRightOf="@+id/lbsBox"
-        android:layout_toEndOf="@+id/lbsBox"
-        android:layout_marginLeft="14dp"
-        android:layout_marginStart="14dp" />
-
-    <RadioButton
-        android:text="cm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/cmBox"
-        android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/lbsBox"
-        android:layout_alignEnd="@+id/lbsBox" />
-
-    <RadioButton
-    android:text="ft"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/ftBox"
-        android:layout_alignBaseline="@+id/cmBox"
-        android:layout_alignBottom="@+id/cmBox"
-        android:layout_alignLeft="@+id/kgBox"
-        android:layout_alignStart="@+id/kgBox" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -114,10 +56,34 @@
         android:id="@+id/weightBox"
         android:textAlignment="center"
         android:hint="(Weight)"
-        android:layout_marginTop="51dp"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/heightBox"
+        android:layout_alignEnd="@+id/heightBox" />
+
+    <RadioGroup
+        android:id="@+id/weightgroup"
+        android:checkedButton="@+id/kgBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/weightBox"
+        android:layout_toRightOf="@+id/weightBox"
+        android:layout_toEndOf="@+id/weightBox">
+
+        <RadioButton
+            android:text="kg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/kgBox"
+            android:layout_toRightOf="@+id/lbsBox"
+            app:layout_toRightOf="@+id/lbsBox" />
+
+        <RadioButton
+        android:text="lbs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lbsBox" />
+
+    </RadioGroup>
 
     <EditText
         android:layout_width="wrap_content"
@@ -127,10 +93,34 @@
         android:id="@+id/heightBox"
         android:hint="(Height)"
         android:textAlignment="center"
-        android:layout_alignBaseline="@+id/cmBox"
-        android:layout_alignBottom="@+id/cmBox"
+        android:layout_marginTop="47dp"
+        android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/heightgroup"
+        android:layout_alignTop="@+id/heightBox"
+        android:layout_alignRight="@+id/weightgroup"
+        android:layout_alignEnd="@+id/weightgroup"
+        android:checkedButton="@+id/cmBox">
+
+    <RadioButton
+        android:text="cm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cmBox"
+        android:layout_toRightOf="@+id/lbsBox"
+        app:layout_toRightOf="@+id/lbsBox" />
+
+    <RadioButton
+        android:text="ft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ftBox" />
+    </RadioGroup>
 
 
 </RelativeLayout>
