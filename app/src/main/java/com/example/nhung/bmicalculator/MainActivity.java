@@ -10,34 +10,35 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     TextView ans;
-    EditText feetTxt;
-    EditText inchesTxt;
-    EditText poundsTxt;
+    EditText weightBox;
+    EditText heightBox;
+    //EditText poundsTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        
-        feetTxt = (EditText) findViewById(R.id.feetTxt);
-        inchesTxt = (EditText) findViewById(R.id.inchesTxt);
-        poundsTxt = (EditText) findViewById(R.id.poundTxt);
-        ans = (TextView) findViewById(R.id.ans);
+
+        weightBox = (EditText) findViewById(R.id.weightBox);
+        heightBox = (EditText) findViewById(R.id.heightBox);
+        //poundsTxt = (EditText) findViewById(R.id.poundTxt);
+        ans = (TextView) findViewById(R.id.ansBox);
 
 
-        Button calculator = (Button) findViewById(R.id.button7);
+        Button calculator = (Button) findViewById(R.id.calBut);
         calculator.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                double feet = Float.parseFloat(feetTxt.getText().toString());
-                double inches = Float.parseFloat(inchesTxt.getText().toString());
-                double weight = Float.parseFloat(poundsTxt.getText().toString());
+                float feet = Float.parseFloat(heightBox.getText().toString());
+                //double inches = Float.parseFloat(inchesTxt.getText().toString());
+                float weight = Float.parseFloat(weightBox.getText().toString());
 
-                double totalHeight = (feet * 12) + inches;
-                double bmi = (weight * 0.45) / Math.pow((totalHeight * 0.025), 2);
+                //double totalHeight = (feet * 12) + inches;
+                double bmi = (weight * 703) / Math.pow((feet * 12), 2);
+//                double bmi = (weight * 703) / Math.pow((feet ), 2);
                 System.out.println(bmi);
-                ans.setText(String.format("%.2f", bmi));
+                ans.setText(String.format("%.1f", bmi));
 
             }
 
