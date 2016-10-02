@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        weightBox.setText("0");
+//        heightBox.setText("0");
         weightBox = (EditText) findViewById(R.id.weightBox);
         heightBox = (EditText) findViewById(R.id.heightBox);
 
@@ -65,9 +67,20 @@ public class MainActivity extends AppCompatActivity {
 
 
                 //calculating
+                if (heightBox.getText().toString().matches("") || heightBox.getText().toString().matches("0") ) {
+                    feet = 1;
+                } else {
+                    feet = Float.parseFloat(heightBox.getText().toString());
 
-                feet = Float.parseFloat(heightBox.getText().toString());
-                weight = Float.parseFloat(weightBox.getText().toString());
+                }
+
+                if (weightBox.getText().toString().matches("")) {
+                    weight = 0;
+                } else {
+                    weight = Float.parseFloat(weightBox.getText().toString());
+
+                }
+
                 converter(weighttype, heighttype);
 
                 bmi = (weight * 703) / Math.pow((feet * 12), 2);
