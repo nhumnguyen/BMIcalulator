@@ -36,12 +36,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        weightBox.setText("0");
-//        heightBox.setText("0");
         weightBox = (EditText) findViewById(R.id.weightBox);
         heightBox = (EditText) findViewById(R.id.heightBox);
 
         ans = (TextView) findViewById(R.id.ansBox);
+        ans.setKeyListener(null);
         calculator = (Button) findViewById(R.id.calBut);
 
 
@@ -62,8 +61,6 @@ public class MainActivity extends AppCompatActivity {
 
                 String weighttype = weightSelected.getText().toString();
                 String heighttype = heightSelected.getText().toString();
-                System.out.println(weighttype);
-                System.out.println(heighttype);
 
 
                 //calculating
@@ -85,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
                 bmi = (weight * 703) / Math.pow((feet * 12), 2);
                 ans.setText(String.format("%.1f", bmi));
-                System.out.println(bmi);
+
 
 
             }
